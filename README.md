@@ -1,10 +1,11 @@
 # Frontegg - Subdomain per Tenant
 
-This repository demonstrates how to set up a dedicated subdomain for each of your clients using Frontegg. In this example, we have created three different tenants/accounts in Frontegg, each with its own dedicated subdomain:
+This repository demonstrates how to set up a dedicated subdomain for each of your clients using Frontegg. For example, our parent domain can be `royhamelekh.com` and then we can add three different tenants\accounts in Frontegg, each with its own dedicated subdomain:
 
-- https://client1.royhamelekh.com/
-- https://client2.royhamelekh.com/
-- https://client3.royhamelekh.com/
+- The first client 'Client1' will be accessible from - [https://client1.royhamelekh.com/](https://client1.royhamelekh.com/)
+- 'Client2' will be accessible from [https://client2.royhamelekh.com/](https://client2.royhamelekh.com/)
+- And 'Client3' will be accessible from [https://client3.royhamelekh.com/](https://client3.royhamelekh.com/)
+(You can add as many accounts\tenants as you'd like in the future)
 
 We use [Embedded login with Frontegg](https://docs.frontegg.com/docs/react-embedded-login-guide) and the [Customization per tenant feature](https://docs.frontegg.com/docs/custom-login-box).
 
@@ -34,14 +35,14 @@ We use [Embedded login with Frontegg](https://docs.frontegg.com/docs/react-embed
 
 
 ### Part 2: Running this code
-Clone this repo
-Open `index.js` and add the values from your environment:
-`baseUrl` = Login URL from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
-`appId` = Application ID from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
-`clientId` = Client ID and API Key from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Env Settings page`.
+Clone this repo.
+Open `src\index.js` and add the values from your environment:
+`baseUrl`: Login URL from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
+`appId`: Application ID from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
+`clientId`: Client ID and API Key from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Env Settings page`.
 ```
 const contextOptions = {
-  baseUrl: 'https://[YOUR_SUBDOMAIN].frontegg.com',
+  baseUrl: 'https://[YOUR_DOMAIN].com',
   clientId: '[YOUR-CLIENT-ID]',
   appId: '[YOUR-APP-ID]'
 };
