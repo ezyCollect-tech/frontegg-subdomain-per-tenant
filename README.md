@@ -24,12 +24,12 @@ We use [Embedded login with Frontegg](https://docs.frontegg.com/docs/react-embed
    - Open your application settings and change the Login URL and App URL to use the custom domain.
    - ![application_urls](./assets/03_app_url.png)
 
-4. **Create Dedicated Accounts for Each Client:**
+4. **Create Dedicated Accounts for each Client:**
    - Go to `Backoffice ➜ Accounts` and create an account for each client.
    - ![accounts_in_backoffice](./assets/04_accounts.png)
 
-5. **Enable Customization per Tenant:**
-   - Enable the [Customization per tenant feature](https://docs.frontegg.com/docs/custom-login-box) for each account.
+5. **Enable customization-per-tenant:**
+   - Enable the [customization per tenant feature](https://docs.frontegg.com/docs/custom-login-box) on each of the accounts.
    - Navigate to `Frontegg Portal ➜ [ENVIRONMENT] ➜ Backoffice ➜ Accounts ➜ [CLIENT_ACCOUNT] ➜ Settings ➜ Custom login` to tie the subdomain to the account.
    - ![custom_login](./assets/05_custom_login.png)
 
@@ -37,9 +37,9 @@ We use [Embedded login with Frontegg](https://docs.frontegg.com/docs/react-embed
 ### Part 2: Running this code
 Clone this repo.
 Open `src\index.js` and add the values from your environment:
-`baseUrl`: Login URL from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
-`appId`: Application ID from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
-`clientId`: Client ID and API Key from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Env Settings page`.
+- `baseUrl`: Login URL from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
+- `appId`: Application ID from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
+- `clientId`: Client ID and API Key from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Env Settings page`.
 ```
 const contextOptions = {
   baseUrl: 'https://[YOUR_DOMAIN].com',
