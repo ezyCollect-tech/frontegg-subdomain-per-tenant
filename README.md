@@ -31,10 +31,11 @@ We use [Embedded login with Frontegg](https://docs.frontegg.com/docs/react-embed
 5. **Enable customization-per-tenant:**
    - Enable the [customization per tenant feature](https://docs.frontegg.com/docs/custom-login-box) on each of the accounts.
    - Navigate to `Frontegg Portal ➜ [ENVIRONMENT] ➜ Backoffice ➜ Accounts ➜ [CLIENT_ACCOUNT] ➜ Settings ➜ Custom login` to tie the subdomain to the account.
+   - Toggle the `Live` button to apply the change and make this account accessible.
+   - *Note that you can also customize the login box styling and authentication methods when using this feature (But you don't have to)
    - ![custom_login](./assets/05_custom_login.png)
 
-
-### Part 2: Running this code
+## Part 2: Running this code
 Clone this repo.
 Open `src\index.js` and add the values from your environment:
 - `baseUrl`: Login URL from `Frontegg Portal ➜ [ENVIRONMENT] ➜ Applications`:
@@ -47,4 +48,22 @@ const contextOptions = {
   appId: '[YOUR-APP-ID]'
 };
 ```
+Here is the relevant code for the `tenantResolver` function, it grabs the subdomain and redirects the user to the relevant account\tenant:
+```
+tenantResolver: () => {
+  const domainParts = window.location.host.split('.');
+  // Check if the host is accessed with a subdomain
+  if (domainParts.length > 2) {
+    const organization = domainParts[0]; // Assuming 'client1' is the tenant identifier i.e 'client1.yourdomain.com'
+    return { tenant: organization };
+   } else {
+    return { tenant: undefined }; // Default tenant or behavior for accessing the root domain (this is the default login box you see in the builder)
+}
+```
 
+
+Host the project on a development platform like Netlify in order to use your domains. You can also use a service like Ngrok to work locally.
+
+#### Important notes when using the customization per tenant feature
+- User signup is not available at the moment for accounts with this feature. Only users that are invited to the accounts will be able to login (except if using SSO).
+- This is not supported for our NextJS SDK (Currently NextJS is supported only with query params)
